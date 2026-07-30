@@ -72,13 +72,14 @@ The generated sample captures the main kinematic distributions and broad reconst
 ```text
 .
 ├── notebooks/
-│   └── ThesisProject.ipynb    # authoritative, complete analysis
+│   └── atlas_jet_conditional_normalizing_flow.ipynb
+│                              # documented, authoritative analysis
 ├── figures/                   # plots embedded in the notebook
 ├── requirements.txt
 └── README.md
 ```
 
-`ThesisProject.ipynb` is the authoritative implementation. Earlier exploratory notebooks are intentionally excluded.
+`atlas_jet_conditional_normalizing_flow.ipynb` is the authoritative implementation. Earlier exploratory notebooks are intentionally excluded.
 
 ## Reproducing the analysis
 
@@ -90,7 +91,9 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-Download the JetSet data from the [CERN Open Data Portal](https://opendata.cern.ch/record/atlas-93940). The notebook expects a jet-level parquet file named `jets.parquet` in its working directory. The original CERN release is HDF5, so prepare the parquet table with the columns used by the notebook before running the analysis.
+Download the JetSet data from the [CERN Open Data Portal](https://opendata.cern.ch/record/atlas-93940). By default, the notebook looks for `data/jets.parquet` relative to the repository root. The original CERN release is HDF5, so prepare the parquet table with the columns used by the notebook before running the production analysis.
+
+If the parquet file is unavailable, the notebook automatically creates a small correlated toy sample, switches to a compact two-block flow, and runs two training epochs. This mode is a software smoke test only; it must not be used for physics conclusions.
 
 Required reconstructed columns:
 
@@ -111,7 +114,7 @@ Then start Jupyter:
 jupyter lab
 ```
 
-Open `notebooks/ThesisProject.ipynb`. If the data file is outside the notebook directory, update the `jets.parquet` path in the data-loading cells.
+Open `notebooks/atlas_jet_conditional_normalizing_flow.ipynb`. If the data file is elsewhere, update `DATA_PATH` in the configuration section.
 
 Training the full configuration is computationally intensive; the reference run used a CUDA-capable GPU.
 
@@ -130,4 +133,3 @@ The fixed six-jet representation imposes an ordering and excludes variable-multi
 
 Jiaxun Lu  
 Advisor: Prof. Gordon Watts
-
