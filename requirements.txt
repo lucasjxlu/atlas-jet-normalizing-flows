@@ -1,0 +1,11 @@
+jupyterlab
+matplotlib
+matplotlib-inline
+normflows
+numpy
+pandas
+pyarrow
+scipy
+seaborn
+torch
+tqdm

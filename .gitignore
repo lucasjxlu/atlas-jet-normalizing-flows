@@ -1,0 +1,14 @@
+.DS_Store
+.ipynb_checkpoints/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Large local datasets and model artifacts
+*.h5
+*.hdf5
+*.parquet
+*.pt
+*.pth
+*.ckpt
+

@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this project, please cite the repository and the underlying ATLAS JetSet dataset."
+title: "Conditional Normalizing Flows for ATLAS Jet Simulation"
+type: software
+authors:
+  - family-names: Lu
+    given-names: Jiaxun
+date-released: 2026-07-30
+abstract: "Conditional normalizing-flow generation of reconstructed ATLAS jet features with event-level validation through top-quark mass reconstruction."
+keywords:
+  - ATLAS
+  - normalizing flows
+  - generative modeling
+  - jet simulation
+  - particle physics
+references:
+  - type: dataset
+    title: "ATLAS ttbar simulation for ML-based jet flavour tagging (JetSet)"
+    authors:
+      - name: "ATLAS Collaboration"
+    year: 2025
+    doi: "10.7483/OPENDATA.ATLAS.QG8W.TO8P"
